@@ -10,9 +10,16 @@ export default function Home() {
 
   const [genreMovie, setGenreMovie] = useState("");
 
-  console.log("home : ", genreMovie);
-
   const listMovies = Listing();
+  let newListMovies = [];
+
+  const actionMovies = listMovies.filter((search) =>
+    search.Movie.genre.includes(genreMovie)
+  );
+
+  actionMovies.map((search) => newListMovies.push(search));
+
+  console.log(newListMovies);
 
   const renderingStars = (item) => {
     let stars = [];
@@ -26,24 +33,47 @@ export default function Home() {
     return stars;
   };
 
-  return (
-    <div className="flex">
-      <Filters setGenreMovie={setGenreMovie} />
-      <div className="list-s grid grid-cols-7 gap-4">
-        {listMovies.map((elem, i) => (
-          <Link key={i} href={`/info/${elem.Movie.ID}`}>
-            <div className="">
-              <div>
-                {elem.Movie.images.map((image, imgIndex) => (
-                  <img key={imgIndex} src={image.img} alt="img" />
-                ))}
+  if (genreMovie) {
+    return (
+      <div className="flex">
+        <Filters setGenreMovie={setGenreMovie} />
+        <div className="list-s grid grid-cols-7 gap-4">
+          {newListMovies.map((elem, i) => (
+            <Link key={i} href={`/info/${elem.Movie.ID}`}>
+              <div className="">
+                <div>
+                  {elem.Movie.images.map((image, imgIndex) => (
+                    <img key={imgIndex} src={image.img} alt="img" />
+                  ))}
+                </div>
+                <div className="">{elem.Movie.title}</div>
+                <div className="">{renderingStars(elem.Movie.note)}</div>
               </div>
-              <div className="">{elem.Movie.title}</div>
-              <div className="">{renderingStars(elem.Movie.note)}</div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="flex">
+        <Filters setGenreMovie={setGenreMovie} />
+        <div className="list-s grid grid-cols-7 gap-4">
+          {listMovies.map((elem, i) => (
+            <Link key={i} href={`/info/${elem.Movie.ID}`}>
+              <div className="">
+                <div>
+                  {elem.Movie.images.map((image, imgIndex) => (
+                    <img key={imgIndex} src={image.img} alt="img" />
+                  ))}
+                </div>
+                <div className="">{elem.Movie.title}</div>
+                <div className="">{renderingStars(elem.Movie.note)}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
