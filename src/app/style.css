@@ -1,6 +1,6 @@
 .list-s {
   border: 2px solid red;
-  margin-left: 180px;
+  margin-left: 220px;
   padding: 10px;
 }
 
@@ -10,6 +10,6 @@
   top: 0;
   left: 0;
   height: 100vh; /* 100% de la hauteur de la fenêtre */
-  min-width: 180px;
+  min-width: 220px;
   overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
 }
