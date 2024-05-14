@@ -1,6 +1,6 @@
 "use client";
 
-export default function filter({ setGenreMovie }) {
+export default function filter({ setObjFilters }) {
   return (
     <div className="filter-s">
       <div>
@@ -13,9 +13,9 @@ export default function filter({ setGenreMovie }) {
           </label>
           <select
             id="countries"
-            onChange={(e) => setGenreMovie(e.target.value)}
+            onChange={(e) => setObjFilters({ genre: e.target.value })}
           >
-            <option defaultValue>Choose genre</option>
+            <option value="">Choose genre</option>
             <option value="Action">Action</option>
             <option value="Animation">Animation</option>
             <option value="Aventure">Aventure</option>

@@ -8,18 +8,19 @@ import { useState } from "react";
 export default function Home() {
   useParams();
 
-  const [genreMovie, setGenreMovie] = useState("");
+  const [objFilters, setObjFilters] = useState({ genre: "" });
 
   const listMovies = Listing();
+
+  // TRI PAR GENRE ------------------------------------
+
   let newListMovies = [];
-
   const actionMovies = listMovies.filter((search) =>
-    search.Movie.genre.includes(genreMovie)
+    search.Movie.genre.includes(objFilters.genre)
   );
-
   actionMovies.map((search) => newListMovies.push(search));
 
-  console.log(newListMovies);
+  // NOTE SUR 5 ------------------------------------
 
   const renderingStars = (item) => {
     let stars = [];
@@ -33,10 +34,10 @@ export default function Home() {
     return stars;
   };
 
-  if (genreMovie) {
+  if (objFilters.genre) {
     return (
       <div className="flex">
-        <Filters setGenreMovie={setGenreMovie} />
+        <Filters setObjFilters={setObjFilters} />
         <div className="list-s grid grid-cols-7 gap-4">
           {newListMovies.map((elem, i) => (
             <Link key={i} href={`/info/${elem.Movie.ID}`}>
@@ -57,7 +58,7 @@ export default function Home() {
   } else {
     return (
       <div className="flex">
-        <Filters setGenreMovie={setGenreMovie} />
+        <Filters setObjFilters={setObjFilters} />
         <div className="list-s grid grid-cols-7 gap-4">
           {listMovies.map((elem, i) => (
             <Link key={i} href={`/info/${elem.Movie.ID}`}>

@@ -1696,7 +1696,7 @@ export default function ListingMovies() {
       Movie: {
         title: "Les Rois Mages",
         ID: "094",
-        genre: "Animation, Comédie",
+        genre: "Comédie",
         description:
           "Les Rois Mages est un film d'animation français réalisé par Artus de Penguern. L'histoire suit les aventures humoristiques de trois mages, Melchior, Balthazar et Gaspard, alors qu'ils suivent une étoile pour trouver l'enfant Jésus.",
         note: 3,
