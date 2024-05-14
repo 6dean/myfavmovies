@@ -8,17 +8,57 @@ import { useState } from "react";
 export default function Home() {
   useParams();
 
-  const [objFilters, setObjFilters] = useState({ genre: "" });
+  const [objFilters, setObjFilters] = useState({ alphabetic: "", genre: "" });
 
   const listMovies = Listing();
+  let newListMovies = [];
 
   // TRI PAR GENRE ------------------------------------
 
-  let newListMovies = [];
   const actionMovies = listMovies.filter((search) =>
     search.Movie.genre.includes(objFilters.genre)
   );
   actionMovies.map((search) => newListMovies.push(search));
+
+  // TRI PAR ALPHAB ------------------------------------
+
+  if (objFilters.alphabetic === "A") {
+    listMovies.sort((a, b) => {
+      const nameA = a.Movie.title.toLowerCase();
+      const nameB = b.Movie.title.toLowerCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    listMovies.forEach((movie) => {
+      newListMovies.push(movie);
+    });
+  } else if (objFilters.alphabetic === "Z") {
+    listMovies.sort((a, b) => {
+      const nameA = a.Movie.title.toLowerCase();
+      const nameB = b.Movie.title.toLowerCase();
+
+      if (nameA < nameB) {
+        return +1;
+      }
+      if (nameA > nameB) {
+        return -1;
+      }
+      return 0;
+    });
+
+    listMovies.forEach((movie) => {
+      newListMovies.push(movie);
+    });
+  } else {
+    null;
+  }
 
   // NOTE SUR 5 ------------------------------------
 
@@ -34,10 +74,10 @@ export default function Home() {
     return stars;
   };
 
-  if (objFilters.genre) {
+  if (objFilters.genre !== "") {
     return (
       <div className="flex">
-        <Filters setObjFilters={setObjFilters} />
+        <Filters setObjFilters={setObjFilters} objFilters={objFilters} />
         <div className="list-s grid grid-cols-7 gap-4">
           {newListMovies.map((elem, i) => (
             <Link key={i} href={`/info/${elem.Movie.ID}`}>
@@ -58,7 +98,7 @@ export default function Home() {
   } else {
     return (
       <div className="flex">
-        <Filters setObjFilters={setObjFilters} />
+        <Filters setObjFilters={setObjFilters} objFilters={objFilters} />
         <div className="list-s grid grid-cols-7 gap-4">
           {listMovies.map((elem, i) => (
             <Link key={i} href={`/info/${elem.Movie.ID}`}>

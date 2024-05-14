@@ -1,6 +1,6 @@
 "use client";
 
-export default function filter({ setObjFilters }) {
+export default function filter({ setObjFilters, objFilters }) {
   return (
     <div className="filter-s">
       <div>
@@ -13,7 +13,9 @@ export default function filter({ setObjFilters }) {
           </label>
           <select
             id="countries"
-            onChange={(e) => setObjFilters({ genre: e.target.value })}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, genre: e.target.value })
+            }
           >
             <option value="">Choose genre</option>
             <option value="Action">Action</option>
@@ -33,6 +35,29 @@ export default function filter({ setObjFilters }) {
             <option value="Western">Western</option>
           </select>
         </form>
+        <div>
+          <label htmlFor="sortAZ">A-Z</label>
+          <input
+            type="radio"
+            id="sortAZ"
+            name="sortOrder"
+            value={"A"}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, alphabetic: e.target.value })
+            }
+          />
+
+          <label htmlFor="sortZA">Z-A</label>
+          <input
+            type="radio"
+            id="sortZA"
+            name="sortOrder"
+            value={"Z"}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, alphabetic: e.target.value })
+            }
+          />
+        </div>
       </div>
     </div>
   );
