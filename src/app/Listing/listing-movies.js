@@ -1604,6 +1604,24 @@ export default function ListingMovies() {
     },
     {
       Movie: {
+        title: "Passengers",
+        ID: "089",
+        genre: "Science-Fiction, Romance",
+        description:
+          "Passengers est un film de science-fiction réalisé par Morten Tyldum. L'histoire se déroule dans un vaisseau spatial transportant des milliers de personnes en hibernation vers une nouvelle planète. Deux passagers se réveillent prématurément et doivent affronter la perspective de vieillir et mourir seuls à bord du vaisseau.",
+        note: 2,
+        year: "2016",
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=220846.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715681090/FILMS/102_km1jyr.jpg",
+          },
+        ],
+      },
+    },
+    {
+      Movie: {
         title: "Ça",
         ID: "090",
         genre: "Horreur, Drame",
@@ -1838,7 +1856,7 @@ export default function ListingMovies() {
     },
   ];
 
-  const shuffledArray = listing.sort(() => Math.random() - 0.5);
+  // const shuffledArray = listing.sort(() => Math.random() - 0.5);
 
-  return shuffledArray;
+  return listing;
 }

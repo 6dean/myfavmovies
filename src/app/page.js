@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import Listing from "./Listing/listing-movies";
+import Filters from "./filters/filter";
+import Listing from "./listing/listing-movies";
 import { useParams } from "next/navigation";
 
 export default function Home() {
@@ -21,20 +22,23 @@ export default function Home() {
   };
 
   return (
-    <div className="list-s grid grid-cols-7 gap-4">
-      {listMovies.map((elem, i) => (
-        <Link key={i} href={`/info/${elem.Movie.ID}`}>
-          <div className="">
-            <div>
-              {elem.Movie.images.map((image, imgIndex) => (
-                <img key={imgIndex} src={image.img} alt="img" />
-              ))}
+    <div className="flex">
+      <Filters />
+      <div className="list-s grid grid-cols-7 gap-4">
+        {listMovies.map((elem, i) => (
+          <Link key={i} href={`/info/${elem.Movie.ID}`}>
+            <div className="">
+              <div>
+                {elem.Movie.images.map((image, imgIndex) => (
+                  <img key={imgIndex} src={image.img} alt="img" />
+                ))}
+              </div>
+              <div className="">{elem.Movie.title}</div>
+              <div className="">{renderingStars(elem.Movie.note)}</div>
             </div>
-            <div className="">{elem.Movie.title}</div>
-            <div className="">{renderingStars(elem.Movie.note)}</div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

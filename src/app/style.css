@@ -1,3 +1,15 @@
 .list-s {
   border: 2px solid red;
+  margin-left: 180px;
+  padding: 10px;
+}
+
+.filter-s {
+  border: 3px solid blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* 100% de la hauteur de la fenêtre */
+  min-width: 180px;
+  overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
 }

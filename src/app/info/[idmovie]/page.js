@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import ListingMovies from "@/app/Listing/listing-movies";
+import ListingMovies from "@/app/listing/listing-movies";
 
 const moviesListing = ListingMovies();
 
@@ -22,6 +22,11 @@ export default function Details({ params }) {
   if (foundMovieName) {
     return (
       <main>
+        <div>
+          {movieInfo.images.map((image, imgIndex) => (
+            <img key={imgIndex} src={image.img} alt="img" />
+          ))}
+        </div>
         <div>{movieInfo.title}</div>
         <div>{movieInfo.genre}</div>
         <div>{movieInfo.description}</div>
