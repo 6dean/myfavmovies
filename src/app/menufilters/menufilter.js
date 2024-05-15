@@ -1,6 +1,6 @@
 "use client";
 
-export default function menuFilter({ setObjFilters, objFilters }) {
+export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
   return (
     <div className="filter-s">
       <div>
@@ -34,55 +34,48 @@ export default function menuFilter({ setObjFilters, objFilters }) {
             <option value="Thriller">Thriller</option>
             <option value="Western">Western</option>
           </select>
+          <div>Trier par :</div>
+          <select
+            id="sort"
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === "A" || value === "Z") {
+                setObjFilters({
+                  ...objFilters,
+                  alphabetic: value,
+                  year: "",
+                  note: "",
+                });
+              } else if (value === "1" || value === "2") {
+                setObjFilters({
+                  ...objFilters,
+                  alphabetic: "",
+                  year: value,
+                  note: "",
+                });
+              } else if (value === "good" || value === "bad") {
+                setObjFilters({
+                  ...objFilters,
+                  alphabetic: "",
+                  year: "",
+                  note: value,
+                });
+              }
+            }}
+            className="mb-4 block w-full p-2 border border-gray-300 rounded"
+          >
+            <option value="">Choisir</option>
+            <option value="A">A-Z</option>
+            <option value="Z">Z-A</option>
+            <option value="1">Plus récent</option>
+            <option value="2">Plus ancien</option>
+            <option value="good">Good</option>
+            <option value="bad">Bad</option>
+          </select>
         </form>
-        <div>
-          <label htmlFor="sortAZ">A-Z</label>
-          <input
-            type="radio"
-            id="sortAZ"
-            name="sortOrder"
-            value={"A"}
-            onChange={(e) =>
-              setObjFilters({ ...objFilters, alphabetic: e.target.value })
-            }
-          />
 
-          <label htmlFor="sortZA">Z-A</label>
-          <input
-            type="radio"
-            id="sortZA"
-            name="sortOrder"
-            value={"Z"}
-            onChange={(e) =>
-              setObjFilters({ ...objFilters, alphabetic: e.target.value })
-            }
-          />
-        </div>
         <div>
-          <label htmlFor="sortYEAR">Plus récent</label>
-          <input
-            type="radio"
-            id="sortYEAR+"
-            name="yearOrder"
-            value={"A"}
-            onChange={(e) =>
-              setObjFilters({ ...objFilters, year: e.target.value })
-            }
-          />
-
-          <label htmlFor="sortYEAR">Plus ancien</label>
-          <input
-            type="radio"
-            id="sortYEAR-"
-            name="yearOrder"
-            value={"Z"}
-            onChange={(e) =>
-              setObjFilters({ ...objFilters, year: e.target.value })
-            }
-          />
-        </div>
-        <div>
-          <label htmlFor="sortYEAR">Top Choice</label>
+          <label htmlFor="sortTOP">Top Choice</label>
           <input
             type="radio"
             id="topmovies"
@@ -97,7 +90,7 @@ export default function menuFilter({ setObjFilters, objFilters }) {
           <input
             type="search"
             className="border border-red-500"
-            onChange={(e) => console.log("faut un state ici")}
+            onChange={(e) => setResearch(e.target.value)}
           />
         </div>
       </div>
