@@ -10,7 +10,7 @@ export default function Home() {
     alphabetic: "",
     year: "",
     note: "",
-    top: false,
+    topSearch: false,
   });
   const [research, setResearch] = useState("");
   const [movies, setMovies] = useState(Listing());
@@ -18,16 +18,25 @@ export default function Home() {
   let newMovies = [];
 
   if (objFilters.genre !== "") {
-    const genreMovies =
-      newMovies.length > 0
-        ? newMovies.filter((search) =>
-            search.Movie.genre.includes(objFilters.genre)
-          )
-        : movies.filter((search) =>
-            search.Movie.genre.includes(objFilters.genre)
-          );
+    if (objFilters.topSearch) {
+      const genreTopMovies = movies.filter(
+        (search) =>
+          search.Movie.genre.includes(objFilters.genre) &&
+          search.Movie.top === objFilters.topSearch
+      );
 
-    genreMovies.map((search) => newMovies.push(search));
+      genreTopMovies.forEach((search) => newMovies.push(search));
+    } else {
+      const genreMovies =
+        newMovies.length > 0
+          ? newMovies.filter((search) =>
+              search.Movie.genre.includes(objFilters.genre)
+            )
+          : movies.filter((search) =>
+              search.Movie.genre.includes(objFilters.genre)
+            );
+      genreMovies.map((search) => newMovies.push(search));
+    }
   }
 
   if (objFilters.alphabetic === "A") {
@@ -66,6 +75,29 @@ export default function Home() {
     }
   }
 
+  if (objFilters.topSearch && objFilters.genre === "") {
+    const genreMovies =
+      newMovies.length > 0
+        ? newMovies.filter(
+            (search) => search.Movie.top === objFilters.topSearch
+          )
+        : movies.filter((search) => search.Movie.top === objFilters.topSearch);
+
+    genreMovies.forEach((search) => newMovies.push(search));
+  }
+
+  useEffect(() => {
+    if (research !== "") {
+      const regex = new RegExp(research, "i");
+      const searchMovies = movies.filter((search) =>
+        regex.test(search.Movie.title)
+      );
+      setMovies(searchMovies);
+    } else {
+      setMovies(Listing());
+    }
+  }, [research]);
+
   const renderingStars = (item) => {
     let stars = [];
     for (let index = 1; index < 6; index++) {
@@ -97,6 +129,7 @@ export default function Home() {
                   </div>
                   <div className="">{elem.Movie.title}</div>
                   <div className="">{renderingStars(elem.Movie.note)}</div>
+                  <div className="">{elem.Movie.top ? "✅" : null}</div>
                 </div>
               </Link>
             ))
@@ -110,6 +143,7 @@ export default function Home() {
                   </div>
                   <div className="">{elem.Movie.title}</div>
                   <div className="">{renderingStars(elem.Movie.note)}</div>
+                  <div className="">{elem.Movie.top ? "✅" : null}</div>
                 </div>
               </Link>
             ))}

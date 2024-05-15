@@ -75,16 +75,21 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
         </form>
 
         <div>
-          <label htmlFor="sortTOP">Top Choice</label>
-          <input
-            type="radio"
-            id="topmovies"
-            name="topmoviesOrder"
-            value={true}
-            onChange={(e) =>
-              setObjFilters({ ...objFilters, top: e.target.value })
-            }
-          />
+          <label htmlFor="sortTOP">Top Choice:</label>
+          <label className="switch">
+            <input
+              type="checkbox"
+              id="topmovies"
+              checked={objFilters.topSearch}
+              onChange={() =>
+                setObjFilters({
+                  ...objFilters,
+                  topSearch: !objFilters.topSearch,
+                })
+              }
+            />
+            <span className="slider"></span>
+          </label>
         </div>
         <div>
           <input
