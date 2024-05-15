@@ -1,12 +1,12 @@
 "use client";
 
-export default function filter({ setObjFilters, objFilters }) {
+export default function menuFilter({ setObjFilters, objFilters }) {
   return (
     <div className="filter-s">
       <div>
         <form className="max-w-sm mx-auto">
           <label
-            for="countries"
+            htmlFor="genres"
             className="block mb-2 text-sm font-medium text-gray-900"
           >
             Genre :
@@ -17,7 +17,7 @@ export default function filter({ setObjFilters, objFilters }) {
               setObjFilters({ ...objFilters, genre: e.target.value })
             }
           >
-            <option value="">Choose genre</option>
+            <option value="">Genre</option>
             <option value="Action">Action</option>
             <option value="Animation">Animation</option>
             <option value="Aventure">Aventure</option>
@@ -56,6 +56,48 @@ export default function filter({ setObjFilters, objFilters }) {
             onChange={(e) =>
               setObjFilters({ ...objFilters, alphabetic: e.target.value })
             }
+          />
+        </div>
+        <div>
+          <label htmlFor="sortYEAR">Plus récent</label>
+          <input
+            type="radio"
+            id="sortYEAR+"
+            name="yearOrder"
+            value={"A"}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, year: e.target.value })
+            }
+          />
+
+          <label htmlFor="sortYEAR">Plus ancien</label>
+          <input
+            type="radio"
+            id="sortYEAR-"
+            name="yearOrder"
+            value={"Z"}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, year: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor="sortYEAR">Top Choice</label>
+          <input
+            type="radio"
+            id="topmovies"
+            name="topmoviesOrder"
+            value={true}
+            onChange={(e) =>
+              setObjFilters({ ...objFilters, top: e.target.value })
+            }
+          />
+        </div>
+        <div>
+          <input
+            type="search"
+            className="border border-red-500"
+            onChange={(e) => console.log("faut un state ici")}
           />
         </div>
       </div>

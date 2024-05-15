@@ -115,7 +115,7 @@ export default function ListingMovies() {
         genre: "Animation, Aventure",
         description:
           "Aladdin est un film d'animation produit par Walt Disney Animation Studios, inspiré du conte Aladin et la lampe merveilleuse. Il raconte l'histoire d'un jeune homme nommé Aladdin qui découvre une lampe magique et devient impliqué dans une aventure pour sauver la princesse Jasmine.",
-        note: "",
+        note: 5,
         year: "1992",
         top: true,
         link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=8640.html",
