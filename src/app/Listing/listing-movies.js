@@ -2033,29 +2033,32 @@ export default function ListingMovies() {
     },
     {
       Movie: {
-        title: "Passengers",
+        title: "Inception",
         ID: "089",
-        genre: "Science-Fiction, Romance",
+        genre: "Science-fiction, Action",
         description:
-          "Passengers est un film de science-fiction réalisé par Morten Tyldum. L'histoire se déroule dans un vaisseau spatial transportant des milliers de personnes en hibernation vers une nouvelle planète. Deux passagers se réveillent prématurément et doivent affronter la perspective de vieillir et mourir seuls à bord du vaisseau.",
-        note: 2,
-        year: 2016,
+          "Inception est un film de science-fiction écrit et réalisé par Christopher Nolan. Il met en vedette Leonardo DiCaprio dans le rôle d'un voleur qui pénètre dans les rêves de ses cibles pour voler des informations précieuses. Le film explore des concepts de réalité et de conscience tout en offrant des séquences d'action spectaculaires.",
+        note: 3,
+        year: 2010,
         top: false,
-        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=220846.html",
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=143692.html",
         images: [
           {
-            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715681090/FILMS/102_km1jyr.jpg",
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715879249/FILMS/121_pfgbok.jpg",
           },
         ],
-        ageRestriction: "Interdit aux moins de 12 ans",
-        actors: ["Jennifer Lawrence", "Chris Pratt", "Michael Sheen"],
-        duration: "1h 56min",
-        countries: ["États-Unis"],
-        productionCompanies: [
-          "Columbia Pictures",
-          "LStar Capital",
-          "Village Roadshow Pictures",
+        ageRestriction: "Tous publics",
+        actors: [
+          "Leonardo DiCaprio",
+          "Joseph Gordon-Levitt",
+          "Elliot Page",
+          "Tom Hardy",
+          "Ken Watanabe",
+          "Cillian Murphy",
         ],
+        duration: "2h 28min",
+        countries: ["États-Unis", "Royaume-Uni"],
+        productionCompanies: ["Warner Bros. Pictures", "Legendary Pictures"],
       },
     },
     {
@@ -2838,6 +2841,63 @@ export default function ListingMovies() {
         duration: "1h 15min",
         countries: ["États-Unis"],
         productionCompanies: ["Electronic Arts", "Film Roman"],
+      },
+    },
+    {
+      Movie: {
+        title: "Interstellar",
+        ID: "122",
+        genre: "Science-fiction, Drame",
+        description:
+          "Interstellar est un film de science-fiction réalisé par Christopher Nolan. Il suit l'histoire d'un groupe d'explorateurs qui utilisent un trou de ver découvert près de Saturne pour voyager à travers les galaxies à la recherche d'un nouvel habitat pour l'humanité. Le film explore des concepts scientifiques complexes ainsi que les thèmes de l'amour, de la survie et de l'humanité.",
+        note: 1,
+        year: 2014,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=114782.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715879249/FILMS/122_xra8o3.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics",
+        actors: [
+          "Matthew McConaughey",
+          "Anne Hathaway",
+          "Jessica Chastain",
+          "Michael Caine",
+          "Casey Affleck",
+          "Matt Damon",
+        ],
+        duration: "2h 49min",
+        countries: ["États-Unis", "Royaume-Uni", "Canada"],
+        productionCompanies: [
+          "Paramount Pictures",
+          "Legendary Pictures",
+          "Syncopy",
+        ],
+      },
+    },
+    {
+      Movie: {
+        title: "Barbie Land",
+        ID: "092",
+        genre: ["Romance", "Comédie", "Famille"],
+        description:
+          "À Barbie Land, vous êtes un être parfait dans un monde parfait. Sauf si vous êtes en crise existentielle, ou si vous êtes Ken.",
+        note: 3,
+        year: 2023,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=173087.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715879249/FILMS/123_eh69dd.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics",
+        duration: "1h 55min",
+        countries: ["États-Unis"],
+        productionCompanies: ["Universal Pictures", "Mattel Films"],
+        actors: ["Margot Robbie", "Ryan Gosling", "America Ferrera"],
       },
     },
   ];

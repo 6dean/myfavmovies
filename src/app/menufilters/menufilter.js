@@ -1,18 +1,15 @@
 "use client";
+import { FaRegStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
 
 export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
   return (
     <div className="filter-s">
       <div>
-        <form className="max-w-sm mx-auto">
-          <label
-            htmlFor="genres"
-            className="block mb-2 text-sm font-medium text-gray-900"
-          >
-            Genre :
-          </label>
+        <form className="w-[200px]">
           <select
-            id="countries"
+            id="genres"
+            className=""
             onChange={(e) =>
               setObjFilters({ ...objFilters, genre: e.target.value })
             }
@@ -34,7 +31,10 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
             <option value="Thriller">Thriller</option>
             <option value="Western">Western</option>
           </select>
-          <div>Trier par :</div>
+        </form>
+      </div>
+      <div>
+        <form className="w-[200px]">
           <select
             id="sort"
             onChange={(e) => {
@@ -62,9 +62,9 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
                 });
               }
             }}
-            className="mb-4 block w-full p-2 border border-gray-300 rounded"
+            className=""
           >
-            <option value="">Choisir</option>
+            <option value="">Trier par</option>
             <option value="A">A-Z</option>
             <option value="Z">Z-A</option>
             <option value="1">Plus récent</option>
@@ -73,28 +73,54 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
             <option value="bad">Bad</option>
           </select>
         </form>
+      </div>
 
+      <div>
         <div>
-          <label htmlFor="sortTOP">Top Choice:</label>
-          <label className="switch">
-            <input
-              type="checkbox"
-              id="topmovies"
-              checked={objFilters.topSearch}
-              onChange={() =>
+          {objFilters.topSearch ? (
+            <div
+              className="topChoice-style"
+              onClick={() =>
                 setObjFilters({
                   ...objFilters,
                   topSearch: !objFilters.topSearch,
                 })
               }
-            />
-            <span className="slider"></span>
-          </label>
+            >
+              <span style={{ marginRight: "6px" }}>Top Choice</span>
+              <FaStar color="orange" size={22} />
+            </div>
+          ) : (
+            <div
+              className="topChoice-style"
+              onClick={() =>
+                setObjFilters({
+                  ...objFilters,
+                  topSearch: !objFilters.topSearch,
+                })
+              }
+            >
+              <span style={{ marginRight: "6px" }}>Top Choice</span>
+              <FaRegStar
+                size={22}
+                onClick={() =>
+                  setObjFilters({
+                    ...objFilters,
+                    topSearch: !objFilters.topSearch,
+                  })
+                }
+              />
+            </div>
+          )}
         </div>
+      </div>
+
+      <div>
         <div>
           <input
             type="search"
-            className="border border-red-500"
+            placeholder="Rechercher un film"
+            className="searchInput-style"
             onChange={(e) => setResearch(e.target.value)}
           />
         </div>
