@@ -3,7 +3,7 @@ import Link from "next/link";
 import MenuFilter from "./menufilters/menufilter";
 import Listing from "./listing/listing-movies";
 import { useState, useEffect } from "react";
-import { FaRegFaceGrinStars } from "react-icons/fa6";
+import { HiOutlineTrophy } from "react-icons/hi2";
 import { MdOutlineStar } from "react-icons/md";
 
 export default function Home() {
@@ -174,10 +174,7 @@ export default function Home() {
                       <div>{renderingStars(elem.Movie.note)}</div>
                       <div className="">
                         {elem.Movie.top ? (
-                          <FaRegFaceGrinStars
-                            color="rgb(102, 255, 0)"
-                            size={20}
-                          />
+                          <HiOutlineTrophy color="orange" size={20} />
                         ) : null}
                       </div>{" "}
                     </div>
@@ -218,10 +215,7 @@ export default function Home() {
                       <div>{renderingStars(elem.Movie.note)}</div>
                       <div className="">
                         {elem.Movie.top ? (
-                          <FaRegFaceGrinStars
-                            color="rgb(102, 255, 0)"
-                            size={20}
-                          />
+                          <HiOutlineTrophy color="orange" size={20} />
                         ) : null}
                       </div>{" "}
                     </div>

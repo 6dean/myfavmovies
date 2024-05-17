@@ -1,6 +1,6 @@
 "use client";
-import { FaRegFaceGrinStars } from "react-icons/fa6";
-import { FaFaceGrinStars } from "react-icons/fa6";
+import { HiTrophy } from "react-icons/hi2";
+import { HiOutlineTrophy } from "react-icons/hi2";
 
 export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
   return (
@@ -93,7 +93,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
               }
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
-              <FaFaceGrinStars color="rgb(102, 255, 0)" size={24} />
+              <HiTrophy color="orange" size={24} />
             </div>
           ) : (
             <div
@@ -106,7 +106,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
               }
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
-              <FaRegFaceGrinStars
+              <HiOutlineTrophy
                 size={24}
                 opacity={"60%"}
                 onClick={() =>

@@ -265,7 +265,7 @@ export default function ListingMovies() {
           "Le Bon, la Brute et le Truand est un film de western spaghetti réalisé par Sergio Leone. Il se déroule pendant la guerre de Sécession et suit trois hommes, le Bon, la Brute et le Truand, qui cherchent un trésor caché.",
         note: 3,
         year: 1966,
-        top: false,
+        top: true,
         link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=19395.html",
         images: [
           {
@@ -822,7 +822,7 @@ export default function ListingMovies() {
           "La Momie est un film d'action, d'aventure et fantastique réalisé par Stephen Sommers. L'histoire suit l'archéologue Rick O'Connell alors qu'il découvre une ancienne momie égyptienne maudite, ramenée à la vie et prête à semer le chaos dans le monde moderne.",
         note: 3,
         year: 1999,
-        top: false,
+        top: true,
         link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=20153.html",
         images: [
           {
@@ -2653,7 +2653,7 @@ export default function ListingMovies() {
           "Godzilla est un film d'action et de science-fiction réalisé par Roland Emmerich. L'histoire suit les aventures d'une équipe de scientifiques et de militaires qui tentent de stopper un monstre géant, Godzilla, qui menace de détruire la ville de New York. Leur lutte pour sauver la ville devient une bataille épique entre l'humanité et une créature de légende.",
         note: 3,
         year: 1998,
-        top: false,
+        top: true,
         link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=25836.html",
         images: [
           {
@@ -2880,7 +2880,7 @@ export default function ListingMovies() {
     {
       Movie: {
         title: "Barbie Land",
-        ID: "092",
+        ID: "123",
         genre: ["Romance", "Comédie", "Famille"],
         description:
           "À Barbie Land, vous êtes un être parfait dans un monde parfait. Sauf si vous êtes en crise existentielle, ou si vous êtes Ken.",
@@ -2898,6 +2898,190 @@ export default function ListingMovies() {
         countries: ["États-Unis"],
         productionCompanies: ["Universal Pictures", "Mattel Films"],
         actors: ["Margot Robbie", "Ryan Gosling", "America Ferrera"],
+      },
+    },
+    {
+      Movie: {
+        title: "Pokémon, le film : Mewtwo contre-attaque",
+        ID: "124",
+        genre: "Animation, Aventure, Famille",
+        description:
+          "Pokémon, le film : Mewtwo contre-attaque est un film d'animation japonais réalisé par Kunihiko Yuyama. Le film suit l'histoire de Mewtwo, un Pokémon créé génétiquement, qui cherche à prouver sa supériorité sur les Pokémon naturels et se lance dans une quête de vengeance contre les humains qui l'ont créé.",
+        note: 2,
+        year: 1998,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=23497.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968710/FILMS/124_h4uvgl.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics",
+        duration: "1h 15min",
+        countries: ["Japon"],
+        productionCompanies: ["OLM, Inc.", "ShoPro", "TV Tokyo"],
+      },
+    },
+    {
+      Movie: {
+        title: "Twister",
+        ID: "125",
+        genre: "Action, Aventure, Drame",
+        description:
+          "Twister est un film d'action et d'aventure réalisé par Jan de Bont. Le film raconte l'histoire d'une équipe de chasseurs de tornades qui se lancent dans une mission périlleuse pour tester un nouveau dispositif de recherche en plein cœur de tornades dévastatrices.",
+        note: 3,
+        year: 1996,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=15037.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968710/FILMS/125_rbs9dj.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics",
+        duration: "1h 53min",
+        countries: ["États-Unis"],
+        productionCompanies: [
+          "Warner Bros.",
+          "Universal Pictures",
+          "Amblin Entertainment",
+        ],
+      },
+    },
+    {
+      Movie: {
+        title: "Saw",
+        ID: "126",
+        genre: "Horreur, Thriller",
+        description:
+          "Saw est un film d'horreur et de thriller réalisé par James Wan. Le film suit l'histoire de deux hommes qui se réveillent enchaînés dans une salle de bains abandonnée, avec un cadavre au milieu de la pièce. Ils découvrent rapidement qu'ils sont les derniers victimes d'un tueur en série connu sous le nom de Jigsaw, qui les force à jouer à un jeu sadique pour survivre.",
+        note: 2,
+        year: 2004,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=57410.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968710/FILMS/126_gavhkq.jpg",
+          },
+        ],
+        ageRestriction: "Interdit aux moins de 16 ans",
+        duration: "1h 43min",
+        countries: ["États-Unis"],
+        productionCompanies: ["Lionsgate", "Twisted Pictures"],
+      },
+    },
+    {
+      Movie: {
+        title: "Gremlins",
+        ID: "127",
+        genre: "Comédie, Fantastique, Horreur",
+        description:
+          "Gremlins est un film de comédie, fantastique et horreur réalisé par Joe Dante. Le film raconte l'histoire de Billy, un jeune homme qui reçoit un étrange animal appelé Mogwai comme cadeau de Noël. Cependant, en ne respectant pas les règles strictes pour s'occuper du Mogwai, il libère une horde de créatures maléfiques et espiègles connues sous le nom de Gremlins.",
+        note: 2,
+        year: 1984,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=339.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968710/FILMS/127_u31hnj.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics avec avertissement",
+        duration: "1h 46min",
+        countries: ["États-Unis"],
+        productionCompanies: ["Warner Bros.", "Amblin Entertainment"],
+      },
+    },
+    {
+      Movie: {
+        title: "Jumper",
+        ID: "128",
+        genre: "Action, Aventure, Science-fiction",
+        description:
+          "Jumper est un film de science-fiction, d'action et d'aventure réalisé par Doug Liman. Le film suit l'histoire de David Rice, un jeune homme qui découvre qu'il a la capacité de se téléporter instantanément n'importe où dans le monde. Alors qu'il utilise ses pouvoirs pour vivre une vie de luxe, il se retrouve traqué par une organisation secrète déterminée à éliminer ceux comme lui.",
+        note: 3,
+        year: 2008,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=114653.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968710/FILMS/128_b0bmus.jpg",
+          },
+        ],
+        ageRestriction: "Tous publics",
+        duration: "1h 28min",
+        countries: ["États-Unis", "Canada"],
+        productionCompanies: [
+          "20th Century Fox",
+          "New Regency Productions",
+          "Dune Entertainment",
+        ],
+      },
+    },
+    {
+      Movie: {
+        title: "Léon",
+        ID: "129",
+        genre: "Action, Crime, Drame",
+        description:
+          "Léon est un film d'action, de crime et de drame réalisé par Luc Besson. Le film suit l'histoire de Léon, un tueur à gages solitaire, qui prend sous son aile une jeune fille nommée Mathilda après que sa famille a été assassinée par des agents corrompus de la DEA. Ensemble, ils forment un lien improbable et Mathilda apprend l'art de l'assassinat pour venger la mort de son frère.",
+        note: 4,
+        year: 1994,
+        top: true,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=9684.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968711/FILMS/129_dl0geb.jpg",
+          },
+        ],
+        ageRestriction: "Interdit aux moins de 12 ans",
+        duration: "1h 50min",
+        countries: ["France"],
+        productionCompanies: ["Gaumont", "Les Films du Dauphin"],
+      },
+    },
+    {
+      Movie: {
+        title: "Eyes Wide Shut",
+        ID: "130",
+        genre: "Drame, Mystère, Thriller",
+        description:
+          "Eyes Wide Shut est un film de drame, mystère et thriller réalisé par Stanley Kubrick. Le film suit l'histoire de Bill Harford, un médecin new-yorkais, qui plonge dans une nuit de découvertes sexuelles et de danger après que sa femme, Alice, lui a avoué avoir envisagé de le tromper. Cette révélation l'entraîne dans un voyage troublant à travers un réseau secret et élitiste de débauche.",
+        note: 2,
+        year: 1999,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=20502.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968711/FILMS/130_lkkkj8.jpg",
+          },
+        ],
+        ageRestriction: "Interdit aux moins de 16 ans",
+        duration: "2h 39min",
+        countries: ["Royaume-Uni", "États-Unis"],
+        productionCompanies: ["Warner Bros.", "Pole Star"],
+      },
+    },
+    {
+      Movie: {
+        title: "[REC]",
+        ID: "131",
+        genre: "Horreur, Thriller",
+        description:
+          "[REC] est un film d'horreur et de thriller réalisé par Jaume Balagueró et Paco Plaza. Le film suit une journaliste et son caméraman qui filment l'intervention nocturne d'une équipe de pompiers dans un immeuble d'appartements à Barcelone. Ce qui commence comme un simple reportage tourne rapidement au cauchemar lorsqu'ils découvrent une infection terrifiante qui transforme les résidents en créatures violentes.",
+        note: 4,
+        year: 2007,
+        top: false,
+        link: "https://www.allocine.fr/film/fichefilm_gen_cfilm=130296.html",
+        images: [
+          {
+            img: "https://res.cloudinary.com/dlfp2xvis/image/upload/v1715968711/FILMS/131_nmjyll.jpg",
+          },
+        ],
+        ageRestriction: "Interdit aux moins de 16 ans",
+        duration: "1h 18min",
+        countries: ["Espagne"],
+        productionCompanies: ["Filmax"],
       },
     },
   ];

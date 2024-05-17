@@ -6,7 +6,6 @@ body {
 }
 
 .list-s {
-  border: 2px solid red;
   padding: 10px;
   margin-top: 8%;
 }
@@ -75,7 +74,7 @@ select:focus {
 
 .topChoice-style:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px rgb(102, 255, 0);
+  box-shadow: 0 0 10px orange;
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -91,7 +90,7 @@ select:focus {
 }
 
 .topChoice-styleTrue {
-  box-shadow: 0 0 10px rgb(102, 255, 0);
+  box-shadow: 0 0 10px orange;
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -107,7 +106,7 @@ select:focus {
 
 .topChoice-styleTrue:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px rgb(102, 255, 0);
+  box-shadow: 0 0 10px orange;
 }
 
 .searchInput-style {
