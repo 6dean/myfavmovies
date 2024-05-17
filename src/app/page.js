@@ -159,7 +159,7 @@ export default function Home() {
                   </div>
                   <div className="p-1">
                     <div className="flex justify-between items-center">
-                      {elem.Movie.title.length > 30 ? (
+                      {elem.Movie.title.length > 25 ? (
                         <div class="scrolling-container">
                           <div className="scrolling-content">
                             <div className="movieTitle">{elem.Movie.title}</div>{" "}
@@ -203,7 +203,7 @@ export default function Home() {
                   </div>
                   <div className="p-1">
                     <div className="flex justify-between items-center">
-                      {elem.Movie.title.length > 30 ? (
+                      {elem.Movie.title.length > 25 ? (
                         <div class="scrolling-container">
                           <div className="scrolling-content">
                             <div className="movieTitle">{elem.Movie.title}</div>{" "}

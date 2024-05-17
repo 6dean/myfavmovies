@@ -34,6 +34,7 @@ body {
   background-color: rgba(185, 185, 185, 0.7);
   border: 2px solid rgba(144, 144, 144, 0.712);
   opacity: 100%;
+  transition: background-color 0.7s ease-out, border 0.7s ease-out;
 }
 
 select {
