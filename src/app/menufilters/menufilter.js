@@ -60,17 +60,22 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
                   year: "",
                   note: value,
                 });
+              } else if (value === "") {
+                setObjFilters({
+                  ...objFilters,
+                  alphabetic: "",
+                });
               }
             }}
             className=""
           >
             <option value="">Trier par</option>
-            <option value="A">A-Z</option>
-            <option value="Z">Z-A</option>
+            <option value="A">Alphabétique ↓</option>
+            <option value="Z">Alphabétique ↑</option>
             <option value="1">Plus récent</option>
             <option value="2">Plus ancien</option>
-            <option value="good">Good</option>
-            <option value="bad">Bad</option>
+            <option value="good">Notes ↓</option>
+            <option value="bad">Notes ↑</option>
           </select>
         </form>
       </div>
@@ -79,7 +84,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
         <div>
           {objFilters.topSearch ? (
             <div
-              className="topChoice-style"
+              className="topChoice-styleTrue"
               onClick={() =>
                 setObjFilters({
                   ...objFilters,
@@ -88,7 +93,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
               }
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
-              <FaStar color="orange" size={22} />
+              <FaStar color="orange" size={24} />
             </div>
           ) : (
             <div
@@ -102,7 +107,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
               <FaRegStar
-                size={22}
+                size={24}
                 onClick={() =>
                   setObjFilters({
                     ...objFilters,

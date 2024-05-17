@@ -13,6 +13,7 @@ export default function Home() {
     topSearch: false,
   });
   const [research, setResearch] = useState("");
+  const [alertUnfound, setAlertUnfound] = useState(false);
   const [movies, setMovies] = useState(Listing());
 
   let newMovies = [];
@@ -26,6 +27,10 @@ export default function Home() {
       );
 
       genreTopMovies.forEach((search) => newMovies.push(search));
+
+      if (newMovies.length === 0) {
+        setAlertUnfound(true);
+      }
     } else {
       const genreMovies =
         newMovies.length > 0
@@ -110,13 +115,16 @@ export default function Home() {
     return stars;
   };
 
+  console.log(alertUnfound);
+
   return (
-    <div className="flex">
+    <div className="">
       <MenuFilter
         setObjFilters={setObjFilters}
         objFilters={objFilters}
         setResearch={setResearch}
       />
+      <div>{alertUnfound ? <>PAS DE FILM TROUVÉ</> : null}</div>
       <div className="list-s grid grid-cols-7 gap-4">
         {newMovies.length === 0
           ? movies.map((elem, i) => (
