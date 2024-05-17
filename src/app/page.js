@@ -139,7 +139,7 @@ export default function Home() {
         setResearch={setResearch}
       />
       <div>{alertUnfound ? <>PAS DE FILM TROUVÉ</> : null}</div>
-      <div className="list-s grid grid-cols-7 gap-4">
+      <div className="list-s grid gap-4 md:grid-cols-5 2xl:grid-cols-7">
         {newMovies.length === 0
           ? movies.map((elem, i) => (
               <Link key={i} href={`/info/${elem.Movie.ID}`}>
