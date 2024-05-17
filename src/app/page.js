@@ -3,6 +3,8 @@ import Link from "next/link";
 import MenuFilter from "./menufilters/menufilter";
 import Listing from "./listing/listing-movies";
 import { useState, useEffect } from "react";
+import { FaRegFaceGrinStars } from "react-icons/fa6";
+import { MdOutlineStar } from "react-icons/md";
 
 export default function Home() {
   const [objFilters, setObjFilters] = useState({
@@ -14,6 +16,7 @@ export default function Home() {
   });
   const [research, setResearch] = useState("");
   const [alertUnfound, setAlertUnfound] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [movies, setMovies] = useState(Listing());
 
   let newMovies = [];
@@ -101,21 +104,32 @@ export default function Home() {
     } else {
       setMovies(Listing());
     }
+
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    // Nettoyez le timeout pour éviter les fuites de mémoire
+    return () => clearTimeout(timeout);
   }, [research]);
 
   const renderingStars = (item) => {
     let stars = [];
-    for (let index = 1; index < 6; index++) {
+    for (let index = 1; index <= 5; index++) {
       if (index <= item) {
-        stars.push("*");
+        stars.push(<MdOutlineStar key={index} color="yellow" />);
       } else {
-        stars.push(null);
+        stars.push(<MdOutlineStar key={index} color="white" opacity={"30%"} />);
       }
     }
-    return stars;
+    return (
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        {[...Array(5)].map((_, index) => (
+          <MdOutlineStar key={index} color={index < item ? "yellow" : "grey"} />
+        ))}
+      </div>
+    );
   };
-
-  console.log(alertUnfound);
 
   return (
     <div className="">
@@ -129,29 +143,89 @@ export default function Home() {
         {newMovies.length === 0
           ? movies.map((elem, i) => (
               <Link key={i} href={`/info/${elem.Movie.ID}`}>
-                <div className="">
+                <div
+                  className={`movieEffect ${isVisible ? "visible" : ""}`}
+                  style={{ transitionDelay: `${i * 0.3}s` }}
+                >
                   <div>
                     {elem.Movie.images.map((image, imgIndex) => (
-                      <img key={imgIndex} src={image.img} alt="img" />
+                      <img
+                        key={imgIndex}
+                        className="imgMovies"
+                        src={image.img}
+                        alt="img"
+                      />
                     ))}
                   </div>
-                  <div className="">{elem.Movie.title}</div>
-                  <div className="">{renderingStars(elem.Movie.note)}</div>
-                  <div className="">{elem.Movie.top ? "✅" : null}</div>
+                  <div className="p-1">
+                    <div className="flex justify-between items-center">
+                      {elem.Movie.title.length > 30 ? (
+                        <div class="scrolling-container">
+                          <div className="scrolling-content">
+                            <div className="movieTitle">{elem.Movie.title}</div>{" "}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="movieTitle">{elem.Movie.title}</div>
+                      )}
+                      <div className="movieYear">{elem.Movie.year}</div>
+                    </div>
+                    <div className="stars-style">
+                      <div>{renderingStars(elem.Movie.note)}</div>
+                      <div className="">
+                        {elem.Movie.top ? (
+                          <FaRegFaceGrinStars
+                            color="rgb(102, 255, 0)"
+                            size={20}
+                          />
+                        ) : null}
+                      </div>{" "}
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))
           : newMovies.map((elem, i) => (
               <Link key={i} href={`/info/${elem.Movie.ID}`}>
-                <div className="">
+                <div
+                  className={`movieEffect ${isVisible ? "visible" : ""}`}
+                  style={{ transitionDelay: `${i * 0.3}s` }}
+                >
                   <div>
                     {elem.Movie.images.map((image, imgIndex) => (
-                      <img key={imgIndex} src={image.img} alt="img" />
+                      <img
+                        key={imgIndex}
+                        className="imgMovies"
+                        src={image.img}
+                        alt="img"
+                      />
                     ))}
                   </div>
-                  <div className="">{elem.Movie.title}</div>
-                  <div className="">{renderingStars(elem.Movie.note)}</div>
-                  <div className="">{elem.Movie.top ? "✅" : null}</div>
+                  <div className="p-1">
+                    <div className="flex justify-between items-center">
+                      {elem.Movie.title.length > 30 ? (
+                        <div class="scrolling-container">
+                          <div className="scrolling-content">
+                            <div className="movieTitle">{elem.Movie.title}</div>{" "}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="movieTitle">{elem.Movie.title}</div>
+                      )}
+                      <div className="movieYear">{elem.Movie.year}</div>
+                    </div>
+                    <div className="stars-style">
+                      <div>{renderingStars(elem.Movie.note)}</div>
+                      <div className="">
+                        {elem.Movie.top ? (
+                          <FaRegFaceGrinStars
+                            color="rgb(102, 255, 0)"
+                            size={20}
+                          />
+                        ) : null}
+                      </div>{" "}
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}

@@ -1434,7 +1434,7 @@ export default function ListingMovies() {
     },
     {
       Movie: {
-        title: "Interstella 5555: The 5tory of the 5ecret 5tar 5ystem",
+        title: "Interstella 5555",
         ID: "063",
         genre: "Animation, Aventure, Science-fiction",
         description:

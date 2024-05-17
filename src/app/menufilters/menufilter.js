@@ -1,6 +1,6 @@
 "use client";
-import { FaRegStar } from "react-icons/fa6";
-import { FaStar } from "react-icons/fa6";
+import { FaRegFaceGrinStars } from "react-icons/fa6";
+import { FaFaceGrinStars } from "react-icons/fa6";
 
 export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
   return (
@@ -93,7 +93,7 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
               }
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
-              <FaStar color="orange" size={24} />
+              <FaFaceGrinStars color="rgb(102, 255, 0)" size={24} />
             </div>
           ) : (
             <div
@@ -106,8 +106,9 @@ export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
               }
             >
               <span style={{ marginRight: "6px" }}>Top Choice</span>
-              <FaRegStar
+              <FaRegFaceGrinStars
                 size={24}
+                opacity={"60%"}
                 onClick={() =>
                   setObjFilters({
                     ...objFilters,

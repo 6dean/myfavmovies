@@ -12,6 +12,7 @@ body {
 }
 
 .filter-s {
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +74,7 @@ select:focus {
 
 .topChoice-style:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px rgb(255, 179, 0);
+  box-shadow: 0 0 10px rgb(102, 255, 0);
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -89,7 +90,7 @@ select:focus {
 }
 
 .topChoice-styleTrue {
-  box-shadow: 0 0 10px rgb(255, 179, 0);
+  box-shadow: 0 0 10px rgb(102, 255, 0);
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -105,7 +106,7 @@ select:focus {
 
 .topChoice-styleTrue:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px rgb(255, 179, 0);
+  box-shadow: 0 0 10px rgb(102, 255, 0);
 }
 
 .searchInput-style {
@@ -115,4 +116,66 @@ select:focus {
   font-size: 15px;
   padding-left: 5px;
   outline-color: #1212129d;
+}
+
+.stars-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movieEffect {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  padding: 10px;
+}
+
+.movieEffect.visible {
+  opacity: 1;
+}
+
+.imgMovies {
+  border-radius: 2px;
+  transition: 0.3s ease-in-out;
+}
+
+.imgMovies:hover {
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  transform: scale(1.01);
+  transition: 0.3s ease-in-out;
+}
+
+.movieTitle {
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  color: white;
+  white-space: nowrap;
+}
+
+.movieYear {
+  color: rgba(218, 218, 218, 0.696);
+  font-size: 14px;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.026);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.movieEffect:hover .scrolling-content {
+  overflow: visible;
+  display: inline-flex;
+  animation: scrollLeft 8s linear infinite;
+}
+
+.scrolling-container {
+  overflow: hidden;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
