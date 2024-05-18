@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { MdOutlineStar } from "react-icons/md";
-import ListingMovies from "@/app/listing/listing-movies";
+import ListingMovies from "@/app/listing/listingmovies";
 
 const moviesListing = ListingMovies();
 
