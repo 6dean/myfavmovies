@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import MenuFilter from "./menufilters/menufilter";
-import Listing from "./listing/listing-movies";
+import Listing from "@/app/listing/listing-movies";
 import { useState, useEffect } from "react";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { MdOutlineStar } from "react-icons/md";

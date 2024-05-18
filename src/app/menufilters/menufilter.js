@@ -23,7 +23,7 @@ export default function menuFilter({
 
   return (
     <div>
-      {screenWidth < 900 ? (
+      {screenWidth > 12900 ? (
         <div
           className={
             alertWillbeTrue
