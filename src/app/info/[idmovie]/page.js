@@ -104,7 +104,7 @@ export default function Details({ params }) {
                     rel="noopener noreferrer"
                   >
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/35/Allocin%C3%A9_Logo.svg/1200px-Allocin%C3%A9_Logo.svg.png"
+                      src="https://res.cloudinary.com/dlfp2xvis/image/upload/v1716033014/FILMS/1200px-Allocin_C3_A9_Logo.svg_to8ebi.png"
                       alt="allocine"
                       width={100}
                     />
