@@ -9,7 +9,7 @@ export default function menuFilter({
   setResearch,
   alertWillbeTrue,
 }) {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,7 +20,6 @@ export default function menuFilter({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(screenWidth <= 900);
 
   return (
     <div>
