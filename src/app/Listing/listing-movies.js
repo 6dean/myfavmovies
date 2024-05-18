@@ -3086,7 +3086,5 @@ export default function ListingMovies() {
     },
   ];
 
-  // const shuffledArray = listing.sort(() => Math.random() - 0.5);
-
   return listing;
 }
