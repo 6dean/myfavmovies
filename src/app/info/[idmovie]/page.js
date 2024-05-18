@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { HiTrophy } from "react-icons/hi2";
 import { useRouter } from "next/navigation";
 import { MdOutlineStar } from "react-icons/md";
 import ListingMovies from "@/app/listing/listing-movies";
