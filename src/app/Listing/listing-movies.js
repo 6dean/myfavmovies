@@ -2881,7 +2881,7 @@ export default function ListingMovies() {
       Movie: {
         title: "Barbie Land",
         ID: "123",
-        genre: ["Romance", "Comédie", "Famille"],
+        genre: "Romance, Comédie, Famille",
         description:
           "À Barbie Land, vous êtes un être parfait dans un monde parfait. Sauf si vous êtes en crise existentielle, ou si vous êtes Ken.",
         note: 3,

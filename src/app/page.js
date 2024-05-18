@@ -15,11 +15,11 @@ export default function Home() {
     topSearch: false,
   });
   const [research, setResearch] = useState("");
-  const [alertUnfound, setAlertUnfound] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [movies, setMovies] = useState(Listing());
 
   let newMovies = [];
+  let alertWillbeTrue = false;
 
   if (objFilters.genre !== "") {
     if (objFilters.topSearch) {
@@ -32,7 +32,7 @@ export default function Home() {
       genreTopMovies.forEach((search) => newMovies.push(search));
 
       if (newMovies.length === 0) {
-        setAlertUnfound(true);
+        alertWillbeTrue = true;
       }
     } else {
       const genreMovies =
@@ -109,7 +109,6 @@ export default function Home() {
       setIsVisible(true);
     }, 100);
 
-    // Nettoyez le timeout pour éviter les fuites de mémoire
     return () => clearTimeout(timeout);
   }, [research]);
 
@@ -137,9 +136,9 @@ export default function Home() {
         setObjFilters={setObjFilters}
         objFilters={objFilters}
         setResearch={setResearch}
+        alertWillbeTrue={alertWillbeTrue}
       />
-      <div>{alertUnfound ? <>PAS DE FILM TROUVÉ</> : null}</div>
-      <div className="list-s grid gap-4 md:grid-cols-5 2xl:grid-cols-7">
+      <div className="list-s grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
         {newMovies.length === 0
           ? movies.map((elem, i) => (
               <Link key={i} href={`/info/${elem.Movie.ID}`}>
@@ -160,7 +159,7 @@ export default function Home() {
                   <div className="p-1">
                     <div className="flex justify-between items-center">
                       {elem.Movie.title.length > 25 ? (
-                        <div class="scrolling-container">
+                        <div className="scrolling-container">
                           <div className="scrolling-content">
                             <div className="movieTitle">{elem.Movie.title}</div>{" "}
                           </div>
@@ -201,7 +200,7 @@ export default function Home() {
                   <div className="p-1">
                     <div className="flex justify-between items-center">
                       {elem.Movie.title.length > 25 ? (
-                        <div class="scrolling-container">
+                        <div className="scrolling-container">
                           <div className="scrolling-content">
                             <div className="movieTitle">{elem.Movie.title}</div>{" "}
                           </div>

@@ -2,9 +2,14 @@
 import { HiTrophy } from "react-icons/hi2";
 import { HiOutlineTrophy } from "react-icons/hi2";
 
-export default function menuFilter({ setObjFilters, objFilters, setResearch }) {
+export default function menuFilter({
+  setObjFilters,
+  objFilters,
+  setResearch,
+  alertWillbeTrue,
+}) {
   return (
-    <div className="filter-s">
+    <div className={alertWillbeTrue ? "filter-s-error" : "filter-s"}>
       <div>
         <form className="w-[200px]">
           <select

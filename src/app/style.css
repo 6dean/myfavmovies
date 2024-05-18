@@ -10,6 +10,22 @@ body {
   margin-top: 8%;
 }
 
+.errorDiv {
+  margin-top: 140px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.noErrordiv {
+  margin-top: 140px;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  opacity: 0%;
+}
+
 .filter-s {
   z-index: 999;
   display: flex;
@@ -20,6 +36,25 @@ body {
   border-radius: 8px;
   background-color: rgba(101, 101, 101, 0.577);
   border: 2px solid rgba(111, 111, 111, 0.317);
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  transition: background-color 0.7s ease-out, border 0.7s ease-out,
+    opacity 0.7s ease-out;
+}
+
+.filter-s-error {
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 65%;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: rgba(101, 101, 101, 0.577);
+  border: 2px solid rgba(255, 0, 0, 0.984);
   position: fixed;
   top: 8%;
   left: 50%;
@@ -179,6 +214,43 @@ select:focus {
     transform: translateX(-50%);
   }
 }
+
+/* ------------------------ PAGE DETAILS /////////////////// */
+
+.title-style {
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.key-style {
+  color: #cccccc85;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.info-style {
+  font-weight: 500;
+  color: #efefefc5;
+}
+
+.desc-style {
+  margin-top: 25px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 1%,
+    #121212 100%
+  );
+  min-height: 150px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 10px;
+  max-width: 1500px;
+  font-size: 20px;
+  color: white;
+}
+
+/* ------------------------ responsive */
 
 @media screen and (max-width: 1480px) {
   .movieTitle {
