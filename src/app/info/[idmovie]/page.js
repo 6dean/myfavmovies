@@ -1,5 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { MdOutlineStar } from "react-icons/md";
 import ListingMovies from "@/app/listing/listingmovies";
 
@@ -7,6 +9,13 @@ const moviesListing = ListingMovies();
 
 export default function Details({ params }) {
   const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname.includes("info")) {
+      localStorage.setItem("visitconfirm", true);
+    }
+  }, [pathname]);
 
   let movieInfo;
   let foundMovieName;

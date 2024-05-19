@@ -214,6 +214,10 @@ select:focus {
   opacity: 1;
 }
 
+.movieEffectSeen {
+  padding: 10px;
+}
+
 .imgMovies {
   border-radius: 2px;
   transition: 0.3s ease-in-out;
@@ -300,5 +304,29 @@ select:focus {
 @media screen and (max-width: 1480px) {
   .movieTitle {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .list-s {
+    padding: 0px;
+  }
+  .imgMovies {
+    max-width: 100px;
+  }
+
+  .movieTitle {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: white;
+    white-space: nowrap;
+  }
+
+  .movieYear {
+    color: rgba(218, 218, 218, 0.696);
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.026);
+    border-radius: 5px;
+    padding: 2px;
   }
 }

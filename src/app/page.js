@@ -16,6 +16,7 @@ export default function Home() {
   });
   const [research, setResearch] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [alreadyVisit, setAlreadyvisit] = useState(false);
   const [movies, setMovies] = useState(Listing());
 
   let newMovies = [];
@@ -105,12 +106,17 @@ export default function Home() {
       setMovies(Listing());
     }
 
+    if (localStorage.getItem("visitconfirm") === "true") {
+      setAlreadyvisit(true);
+    }
     const timeout = setTimeout(() => {
       setIsVisible(true);
     }, 100);
 
     return () => clearTimeout(timeout);
   }, [research]);
+
+  console.log(isVisible);
 
   const renderingStars = (item) => {
     let stars = [];
@@ -143,8 +149,14 @@ export default function Home() {
           ? movies.map((elem, i) => (
               <Link key={i} href={`/info/${elem.Movie.ID}`}>
                 <div
-                  className={`movieEffect ${isVisible ? "visible" : ""}`}
-                  style={{ transitionDelay: `${i * 0.3}s` }}
+                  className={`${
+                    alreadyVisit
+                      ? `movieEffectSeen ${isVisible ? "visible" : ""}`
+                      : `movieEffect ${isVisible ? "visible" : ""}`
+                  }`}
+                  style={
+                    alreadyVisit ? null : { transitionDelay: `${i * 0.3}s` }
+                  }
                 >
                   <div>
                     {elem.Movie.images.map((image, imgIndex) => (
