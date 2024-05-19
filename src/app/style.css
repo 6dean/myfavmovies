@@ -251,6 +251,12 @@ select:focus {
   animation: scrollLeft 8s linear infinite;
 }
 
+.movieEffectSeen:hover .scrolling-content {
+  overflow: visible;
+  display: inline-flex;
+  animation: scrollLeft 8s linear infinite;
+}
+
 .scrolling-container {
   overflow: hidden;
 }

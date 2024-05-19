@@ -116,8 +116,6 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, [research]);
 
-  console.log(isVisible);
-
   const renderingStars = (item) => {
     let stars = [];
     for (let index = 1; index <= 5; index++) {
@@ -170,7 +168,7 @@ export default function Home() {
                   </div>
                   <div className="p-1">
                     <div className="flex justify-between items-center">
-                      {elem.Movie.title.length > 25 ? (
+                      {elem.Movie.title.length > 28 ? (
                         <div className="scrolling-container">
                           <div className="scrolling-content">
                             <div className="movieTitle">{elem.Movie.title}</div>{" "}
