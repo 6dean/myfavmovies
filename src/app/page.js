@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import MenuFilter from "./menufilters/menufilter";
-import Listing from "./listing/listingmovies";
+import ApiMovies from "./api/movies";
 import { useState, useEffect } from "react";
 import { HiOutlineTrophy } from "react-icons/hi2";
 import { MdOutlineStar } from "react-icons/md";
@@ -17,10 +17,19 @@ export default function Home() {
   const [research, setResearch] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [alreadyVisit, setAlreadyvisit] = useState(false);
-  const [movies, setMovies] = useState(Listing());
+  const [movies, setMovies] = useState([]);
 
   let newMovies = [];
   let alertWillbeTrue = false;
+
+  const fetchMovies = async () => {
+    try {
+      const moviesData = await ApiMovies();
+      setMovies(moviesData);
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
 
   if (objFilters.genre !== "") {
     if (objFilters.topSearch) {
@@ -102,18 +111,20 @@ export default function Home() {
         regex.test(search.Movie.title)
       );
       setMovies(searchMovies);
+      searchMovies.length === 0 ? fetchMovies() : null;
     } else {
-      setMovies(Listing());
+      fetchMovies();
+
+      const timeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 400);
+
+      return () => clearTimeout(timeout);
     }
 
     if (localStorage.getItem("visitconfirm") === "true") {
       setAlreadyvisit(true);
     }
-    const timeout = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
-    return () => clearTimeout(timeout);
   }, [research]);
 
   const renderingStars = (item) => {
