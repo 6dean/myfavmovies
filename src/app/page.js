@@ -15,6 +15,7 @@ export default function Home() {
     topSearch: false,
   });
   const [research, setResearch] = useState("");
+  const [safeLoad, setSafeLoad] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [alreadyVisit, setAlreadyvisit] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ export default function Home() {
 
   const fetchMovies = async () => {
     try {
-      const moviesData = await ApiMovies();
+      const moviesData = await ApiMovies({ setSafeLoad });
       setMovies(moviesData);
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -145,6 +146,14 @@ export default function Home() {
     );
   };
 
+  useEffect(() => {
+    if (safeLoad === false) {
+      setTimeout(() => {
+        alert`ALERT API ERROR - LOAD MOVIES IMPOSSIBLE`;
+      }, 2000);
+    }
+  }, [safeLoad]);
+
   return (
     <div className="">
       <MenuFilter
@@ -153,97 +162,105 @@ export default function Home() {
         setResearch={setResearch}
         alertWillbeTrue={alertWillbeTrue}
       />
-      <div className="list-s grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {newMovies.length === 0
-          ? movies.map((elem, i) => (
-              <Link key={i} href={`/info/${elem.Movie.ID}`}>
-                <div
-                  className={`${
-                    alreadyVisit
-                      ? `movieEffectSeen ${isVisible ? "visible" : ""}`
-                      : `movieEffect ${isVisible ? "visible" : ""}`
-                  }`}
-                  style={
-                    alreadyVisit ? null : { transitionDelay: `${i * 0.3}s` }
-                  }
-                >
-                  <div>
-                    {elem.Movie.images.map((image, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className="imgMovies"
-                        src={image.img}
-                        alt="img"
-                      />
-                    ))}
-                  </div>
-                  <div className="p-1">
-                    <div className="flex justify-between items-center">
-                      {elem.Movie.title.length > 28 ? (
-                        <div className="scrolling-container">
-                          <div className="scrolling-content">
-                            <div className="movieTitle">{elem.Movie.title}</div>{" "}
+      {safeLoad ? (
+        <div className="list-s grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+          {newMovies.length === 0
+            ? movies.map((elem, i) => (
+                <Link key={i} href={`/info/${elem.Movie.ID}`}>
+                  <div
+                    className={`${
+                      alreadyVisit
+                        ? `movieEffectSeen ${isVisible ? "visible" : ""}`
+                        : `movieEffect ${isVisible ? "visible" : ""}`
+                    }`}
+                    style={
+                      alreadyVisit ? null : { transitionDelay: `${i * 0.3}s` }
+                    }
+                  >
+                    <div>
+                      {elem.Movie.images.map((image, imgIndex) => (
+                        <img
+                          key={imgIndex}
+                          className="imgMovies"
+                          src={image.img}
+                          alt="img"
+                        />
+                      ))}
+                    </div>
+                    <div className="p-1">
+                      <div className="flex justify-between items-center">
+                        {elem.Movie.title.length > 28 ? (
+                          <div className="scrolling-container">
+                            <div className="scrolling-content">
+                              <div className="movieTitle">
+                                {elem.Movie.title}
+                              </div>{" "}
+                            </div>
                           </div>
-                        </div>
-                      ) : (
-                        <div className="movieTitle">{elem.Movie.title}</div>
-                      )}
-                      <div className="movieYear">{elem.Movie.year}</div>
-                    </div>
-                    <div className="stars-style">
-                      <div>{renderingStars(elem.Movie.note)}</div>
-                      <div className="">
-                        {elem.Movie.top ? (
-                          <HiOutlineTrophy color="orange" size={20} />
-                        ) : null}
-                      </div>{" "}
+                        ) : (
+                          <div className="movieTitle">{elem.Movie.title}</div>
+                        )}
+                        <div className="movieYear">{elem.Movie.year}</div>
+                      </div>
+                      <div className="stars-style">
+                        <div>{renderingStars(elem.Movie.note)}</div>
+                        <div className="">
+                          {elem.Movie.top ? (
+                            <HiOutlineTrophy color="orange" size={20} />
+                          ) : null}
+                        </div>{" "}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))
-          : newMovies.map((elem, i) => (
-              <Link key={i} href={`/info/${elem.Movie.ID}`}>
-                <div
-                  className={`movieEffect ${isVisible ? "visible" : ""}`}
-                  style={{ transitionDelay: `${i * 0.3}s` }}
-                >
-                  <div>
-                    {elem.Movie.images.map((image, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className="imgMovies"
-                        src={image.img}
-                        alt="img"
-                      />
-                    ))}
-                  </div>
-                  <div className="p-1">
-                    <div className="flex justify-between items-center">
-                      {elem.Movie.title.length > 25 ? (
-                        <div className="scrolling-container">
-                          <div className="scrolling-content">
-                            <div className="movieTitle">{elem.Movie.title}</div>{" "}
+                </Link>
+              ))
+            : newMovies.map((elem, i) => (
+                <Link key={i} href={`/info/${elem.Movie.ID}`}>
+                  <div
+                    className={`movieEffect ${isVisible ? "visible" : ""}`}
+                    style={{ transitionDelay: `${i * 0.3}s` }}
+                  >
+                    <div>
+                      {elem.Movie.images.map((image, imgIndex) => (
+                        <img
+                          key={imgIndex}
+                          className="imgMovies"
+                          src={image.img}
+                          alt="img"
+                        />
+                      ))}
+                    </div>
+                    <div className="p-1">
+                      <div className="flex justify-between items-center">
+                        {elem.Movie.title.length > 25 ? (
+                          <div className="scrolling-container">
+                            <div className="scrolling-content">
+                              <div className="movieTitle">
+                                {elem.Movie.title}
+                              </div>{" "}
+                            </div>
                           </div>
-                        </div>
-                      ) : (
-                        <div className="movieTitle">{elem.Movie.title}</div>
-                      )}
-                      <div className="movieYear">{elem.Movie.year}</div>
-                    </div>
-                    <div className="stars-style">
-                      <div>{renderingStars(elem.Movie.note)}</div>
-                      <div className="">
-                        {elem.Movie.top ? (
-                          <HiOutlineTrophy color="orange" size={20} />
-                        ) : null}
-                      </div>{" "}
+                        ) : (
+                          <div className="movieTitle">{elem.Movie.title}</div>
+                        )}
+                        <div className="movieYear">{elem.Movie.year}</div>
+                      </div>
+                      <div className="stars-style">
+                        <div>{renderingStars(elem.Movie.note)}</div>
+                        <div className="">
+                          {elem.Movie.top ? (
+                            <HiOutlineTrophy color="orange" size={20} />
+                          ) : null}
+                        </div>{" "}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-      </div>
+                </Link>
+              ))}
+        </div>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
