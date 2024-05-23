@@ -25,8 +25,13 @@ export default function Home() {
 
   const fetchMovies = async () => {
     try {
-      const moviesData = await ApiMovies({ setSafeLoad });
-      setMovies(moviesData);
+      const moviesData = await ApiMovies();
+      if (moviesData) {
+        setMovies(moviesData);
+        setSafeLoad(true);
+      } else {
+        setSafeLoad(false);
+      }
     } catch (error) {
       console.error("Error fetching movies:", error);
     }

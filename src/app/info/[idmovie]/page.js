@@ -1,32 +1,39 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { MdOutlineStar } from "react-icons/md";
-import ListingMovies from "@/app/listing/listingmovies";
-
-const moviesListing = ListingMovies();
+import ApiMovies from "@/app/api/movies";
 
 export default function Details({ params }) {
+  const [movieInfo, setMovieInfo] = useState([]);
+  const [safeLoad, setSafeLoad] = useState(null);
+
   const router = useRouter();
   const pathname = usePathname();
 
+  const fetchMovies = async () => {
+    try {
+      const moviesData = await ApiMovies(params);
+      if (moviesData) {
+        setMovieInfo(moviesData);
+        setSafeLoad(true);
+      } else {
+        setSafeLoad(false);
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+      }
+    } catch (error) {
+      console.error("Error fetching movies:", error);
+    }
+  };
+
   useEffect(() => {
+    fetchMovies();
     if (pathname.includes("info")) {
       localStorage.setItem("visitconfirm", true);
     }
   }, [pathname]);
-
-  let movieInfo;
-  let foundMovieName;
-
-  for (let i = 0; i < moviesListing.length; i++) {
-    if (moviesListing[i].Movie.ID === params.idmovie) {
-      const foundMovieId = moviesListing[i].Movie;
-      foundMovieName = true;
-      movieInfo = foundMovieId;
-    }
-  }
 
   const renderingStars = (item) => {
     let stars = [];
@@ -46,7 +53,7 @@ export default function Details({ params }) {
     );
   };
 
-  if (foundMovieName) {
+  if (safeLoad) {
     return (
       <main className="flex justify-center mt-5 p-10">
         <div>
@@ -127,6 +134,6 @@ export default function Details({ params }) {
       </main>
     );
   } else {
-    return router.push("/");
+    null;
   }
 }
