@@ -4,7 +4,6 @@ export default async function apiMovie(params) {
 
   if (apiKey !== undefined) {
     try {
-      console.log(apiUrl);
       const response = await fetch(apiUrl, {
         method: "GET",
         headers: {
